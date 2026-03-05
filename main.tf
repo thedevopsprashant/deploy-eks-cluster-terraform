@@ -45,3 +45,18 @@ module "eks" {
 
   depends_on = [module.vpc]
 }
+
+module "helm" {
+  source = "github.com/thedevopsprashant/terraform-aws-modules//modules/helm?ref=v1.0.5"
+
+  cluster_name            = module.eks.cluster_name
+  vpc_id                  = module.vpc.vpc_id
+  region                  = var.region
+  alb_controller_role_arn = module.eks.alb_controller_role_arn
+
+  alb_controller_version = "1.17.0"
+  argocd_version = "9.3.1"
+  prometheus_stack_version = "81.0.0"
+
+  depends_on = [module.eks, module.vpc]
+}
