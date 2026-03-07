@@ -18,7 +18,7 @@ spec:
     # 👇 Default catch-all (matches any host not listed above) #host: ""
     - http: 
         paths:
-         - path: /flipkart
+         - path: /
            pathType: Prefix
            backend:
               service:
