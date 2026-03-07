@@ -1,4 +1,6 @@
+# Deploy Production Ready EKS Cluster Using Terraform
 
+This Project TODO.
 
 ## EKS Cluster Setup
 ```bash
@@ -28,32 +30,48 @@ helm list -A
 ```
 
 ## Install EKS Addons prometheus version check
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update prometheus-community
 helm search repo prometheus-community/kube-prometheus-stack --versions
 helm list -A
+```
 
-## update the kubeconfig
+## Update the kubeconfig
+```bash
 aws eks update-kubeconfig --name testing-my-cluster --region ap-south-1
+```
 
 ## Get the argocd server url
+```bash
 kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname'
+```
 
-**Get the argocd admin password**
+## Get the argocd admin password
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-***Get the prometheus admin password***
+## Get the prometheus admin password
+```bash
 kubectl get secret --namespace prometheus prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
 
-14. get the prometheus grafana image
+## Get the prometheus grafana image
+```bash
 helm list -n prometheus
 kubectl get pods -n prometheus -l app.kubernetes.io/name=grafana -o jsonpath='{.items[*].spec.containers[*].image}'
-15. reset the prometheus grafana admin password
+```
+
+## Reset the prometheus grafana admin password
+```bash
 kubectl exec --namespace prometheus -it $(kubectl get pods --namespace prometheus -l app.kubernetes.io/name=grafana -o jsonpath="{.items[0].metadata.name}") -- grafana-cli admin reset-admin-password Abcd@1234
-16. Delete the Deployments
+```
+
+## Delete the Deployments
+```bash
 kubectl delete -f .
+```
 
 ## Destory the infrastructure
 ```bash
