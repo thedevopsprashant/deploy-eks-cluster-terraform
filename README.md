@@ -73,7 +73,7 @@ kubectl exec --namespace prometheus -it $(kubectl get pods --namespace prometheu
 kubectl delete -f .
 ```
 
-## Destory the infrastructure
+## Destroy the infrastructure
 ```bash
 terraform plan -var-file="dev.tfvars"
 terraform apply -var-file="dev.tfvars" -auto-approve
