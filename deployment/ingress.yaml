@@ -2,7 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myingress
-  namespace: flipkart-ns
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/load-balancer-name: flipkart-ns-alb
@@ -20,11 +19,19 @@ spec:
     - host: ""
       http:
         paths:
-         - path: /
+         - path: /flipkart
            pathType: Prefix
            backend:
               service:
                 name: flipkart-svc
+                # or your default frontend
+                port:
+                  number: 80
+         - path: /amazon
+           pathType: Prefix
+           backend:
+              service:
+                name: amazon-svc
                 # or your default frontend
                 port:
                   number: 80

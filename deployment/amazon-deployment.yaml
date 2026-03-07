@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: amazon-app-deployment
-  namespace: amazon-ns
 spec:
   replicas: 2 # Adjust the number of replicas as needed
   selector:
@@ -42,7 +41,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: amazon-svc
-  namespace: amazon-ns
 spec:
   selector:
     app: amazon-app
