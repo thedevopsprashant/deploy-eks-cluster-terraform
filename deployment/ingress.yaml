@@ -16,9 +16,8 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    # 👇 Default catch-all (matches any host not listed above)
-    - host: ""
-      http:
+    # 👇 Default catch-all (matches any host not listed above) #host: ""
+    - http: 
         paths:
          - path: /flipkart
            pathType: Prefix
