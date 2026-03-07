@@ -1,6 +1,6 @@
 
 module "vpc" {
-  source = "github.com/thedevopsprashant/terraform-aws-modules//modules/vpc?ref=v1.0.0"
+  source = "github.com/thedevopsprashant/terraform-aws-modules//modules/vpc?ref=v1.0.5"
  
   vpc_cidr_block = var.vpc_cidr_block
   public_subnet = var.public_subnet
@@ -47,15 +47,15 @@ module "eks" {
 }
 
 module "helm" {
-  source = "github.com/thedevopsprashant/terraform-aws-modules//modules/helm?ref=v1.0.5"
+  source = "github.com/thedevopsprashant/terraform-aws-modules//modules/helm?ref=v1.0.6"
 
   cluster_name            = module.eks.cluster_name
   vpc_id                  = module.vpc.vpc_id
   region                  = var.region
   alb_controller_role_arn = module.eks.alb_controller_role_arn
 
-  alb_controller_version = "1.17.0"
-  argocd_version = "9.3.1"
+  alb_controller_version = "3.0.0"
+  argocd_version = "9.4.6"
   prometheus_stack_version = "81.0.0"
 
   depends_on = [module.eks, module.vpc]

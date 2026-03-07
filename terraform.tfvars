@@ -3,6 +3,7 @@ public_subnet = ["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24"]
 private_subnet = ["10.0.4.0/24","10.0.5.0/24","10.0.6.0/24"]
 env = "production"
 cluster_name = "my-eks"
+region = "ap-south-1"
 
 # EKS
 is_eks_cluster_enabled  = true
