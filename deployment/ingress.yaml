@@ -26,11 +26,3 @@ spec:
                 # or your default frontend
                 port:
                   number: 80
-         - path: /amazon
-           pathType: Prefix
-           backend:
-              service:
-                name: amazon-svc
-                # or your default frontend
-                port:
-                  number: 80
