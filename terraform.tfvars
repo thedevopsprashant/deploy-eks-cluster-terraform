@@ -15,9 +15,9 @@ authentication_mode     = "API_AND_CONFIG_MAP"
 ondemand_instance_types = ["t3a.medium"]
 spot_instance_types     = ["c5a.large", "c5.large", "m5.large", "t3a.large", "t3a.medium"]
 
-desired_capacity_on_demand = "2"
-min_capacity_on_demand     = "2"
-max_capacity_on_demand     = "3"
+desired_capacity_on_demand = "1"
+min_capacity_on_demand     = "1"
+max_capacity_on_demand     = "2"
 
 desired_capacity_spot = "2"
 min_capacity_spot     = "2"
