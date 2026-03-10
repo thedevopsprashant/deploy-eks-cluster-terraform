@@ -1,6 +1,12 @@
 # Deploy Production Ready EKS Cluster Using Terraform
 
-This Project TODO.
+This project creates an EKS cluster with On demand and Spot Node groups, Install ALB controller, Prometheus Grafana stack using helm. Then Create a APP in ArgoCd which points to deployment folder in the same repo, Which has ymls for Flipkart and Amazon Apps, which can be accessed using ALB. Prometheus, Grafana, ArgoCd are also accesible using NLB.
+
+To Run this Project:
+1.Go to folder where all TF files available, main.tf and all.
+2.Run tf init, tf plan, tf apply. This will create VPC, EKS, Install ArgoCD, Prom-Grafana using Helm releases.
+3.Then everything should be accessible using ELBs.
+4.Open ArgoCD URL and Create APP, Point it to Deployment Folder in the repo.
 
 ## EKS Cluster Setup
 ```bash

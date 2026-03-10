@@ -46,3 +46,5 @@ addons = [
   }
 
 ]
+
+is_prometheus-stack_enabled = false

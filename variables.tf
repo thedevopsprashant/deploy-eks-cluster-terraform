@@ -47,6 +47,8 @@ variable "addons" {
   }))
 }
 
+variable "is_prometheus-stack_enabled" {}
+
 
 
 
