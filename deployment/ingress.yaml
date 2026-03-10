@@ -5,7 +5,7 @@ metadata:
   namespace: flipkart-ns
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/load-balancer-name: flipkart-ns-alb
+    alb.ingress.kubernetes.io/load-balancer-name: my-app-alb
     # Target type and Listener Port
     alb.ingress.kubernetes.io/target-type: ip
 
@@ -23,7 +23,7 @@ spec:
            pathType: Prefix
            backend:
               service:
-                name: flipkart-svc
+                name: amazon-svc
                 # or your default frontend
                 port:
                   number: 80
